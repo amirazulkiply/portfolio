@@ -6,7 +6,6 @@
   --accent-pink: #f4c6c6;      /* Soft pastel pink */
   --card-bg: #ffffff;          /* White for cards */
   --border-color: #f0e6d2;     /* Delicate border */
-  
   --font-heading: 'Playfair Display', serif;
   --font-body: 'Quicksand', sans-serif;
 }
@@ -24,9 +23,14 @@ html {
 
 body {
   font-family: var(--font-body);
+  /* Keep your existing colors and fonts */
   background-color: var(--bg-color);
   color: var(--text-color);
   line-height: 1.7;
+  background-image: linear-gradient(rgba(253, 250, 246, 0.92), rgba(253, 250, 246, 0.92)), url('../assets/images/bg-pattern.png');
+  background-size: auto, 400px; /* Adjust this to make the pattern bigger/smaller */
+  background-attachment: fixed;
+  cursor: url('https://cdn.cursors-4u.net/previews/angel-wing-star-2873bcf8-70.webp') 47 45, auto !important;
 }
 
 h1, h2, h3, .logo {
@@ -100,13 +104,36 @@ a:hover {
 }
 
 /* ===== 4. HERO (HOME) SECTION ===== */
+
+.profile-pic {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%; /* Makes it a circle */
+  object-fit: cover;
+  border: 4px solid var(--accent-pink); /* Cute border */
+  margin: 0 auto 1.5rem auto;
+  box-shadow: 0 8px 20px rgba(244, 198, 198, 0.5);
+  display: block;
+}
+
 .hero {
-  height: 100vh;
+  min-height: 100vh; /* Change 'height' to 'min-height' */
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 0 2rem;
+  flex-direction: column; 
+  padding: 8rem 2rem 4rem 2rem; /* ADD THIS: Gives space at the top for the navbar and at the bottom */
+}
+
+.hero-content {
+  background-color: var(--bg-color); /* Solid cream background */
+  padding: 3rem;
+  border-radius: 30px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Soft shadow so it pops off the background */
+  max-width: 700px;
+  margin-top: 0;
 }
 
 .eyebrow {
@@ -371,6 +398,18 @@ footer {
   border-radius: 12px;
   margin-bottom: 1.5rem;
   border: 1px solid var(--border-color);
+}
+
+/* Give images a playful tilt */
+.img-wrapper {
+  transform: rotate(-2deg); /* Tilts the image slightly */
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.1); /* Adds a paper-like shadow */
+  transition: transform 0.3s; /* Makes it smooth when you hover */
+}
+
+/* When you hover over the card, the image straightens out */
+.project-card:hover .img-wrapper {
+  transform: rotate(0deg) scale(1.02); 
 }
 
 .project-img {
