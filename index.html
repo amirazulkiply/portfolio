@@ -14,26 +14,22 @@
 
   <!-- 1. NAVIGATION BAR -->
   <header class="navbar">
-  <nav aria-label="Primary">
-    <a href="#home" class="logo">Amira.</a>
-    
-    <!-- The Hamburger Button for Mobile -->
-    <button class="menu-toggle" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
+    <nav aria-label="Primary">
+      <a href="#home" class="logo">Amira.</a>
+      
+      <!-- The Hamburger Button for Mobile -->
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
 
-    <ul class="nav-menu">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#about">About Me</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-</header>
-
-<footer>
-  <p>&copy; <span id="year"></span> Amira. All rights reserved.</p>
-</footer>
+      <ul class="nav-menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <main>
     <!-- 2. HOME SECTION -->
@@ -54,12 +50,12 @@
       <h2 class="section-title">My Projects</h2>
       
       <div class="projects-grid">
+        
         <!-- Project 1 -->
-         <article class="project-card">
+        <article class="project-card">
           <div class="img-wrapper">
             <img src="assets/images/travel.jpg" alt="Travel landscape" class="project-img">
           </div>
-          
           <h3>Wanderlust Travel Guide</h3>
           <p>A dreamy travel blog layout featuring destination guides, packing checklists and interactive photo galleries to inspire your next trip.</p>
           <ul class="tags">
@@ -72,7 +68,9 @@
 
         <!-- Project 2 -->
         <article class="project-card">
-          <img src="assets/images/makeup.jpg" alt="Makeup tips" class="project-img">
+          <div class="img-wrapper">
+            <img src="assets/images/makeup.jpg" alt="Makeup tips" class="project-img">
+          </div>
           <h3>Glow Up Beauty Portfolio</h3>
           <p>A sleek, pastel-themed website for a makeup artist. Includes a product review section, a beauty tips blog and a contact form for booking appointments.</p>
           <ul class="tags">
@@ -85,10 +83,12 @@
 
         <!-- Project 3 -->
         <article class="project-card">
-          <img src="assets/images/coffee.jpg" alt="coffee" class="project-img">
+          <div class="img-wrapper">
+            <img src="assets/images/coffee.jpg" alt="coffee" class="project-img">
+          </div>
           <h3>Cozy Cafe Recipe Book</h3>
           <p>An interactive digital recipe book focused on cozy drinks and pastries. Features a JavaScript filter to sort recipes by category (vegan, iced, hot).</p>
-            <ul class="tags">
+          <ul class="tags">
             <li>JavaScript</li>
             <li>CSS Grid</li>
           </ul>
@@ -97,7 +97,9 @@
 
         <!-- Project 4 -->
         <article class="project-card">
-          <img src="assets/images/flower.jpg" alt="florist" class="project-img">
+          <div class="img-wrapper">
+            <img src="assets/images/flower.jpg" alt="florist" class="project-img">
+          </div>
           <h3>Blooming Botanicals</h3>
           <p>A flower shop landing page with a step-by-step guide on how to care for fresh bouquets and indoor plants. Includes a dynamic FAQ section.</p>
           <ul class="tags">
@@ -110,7 +112,9 @@
 
         <!-- Project 5 -->
         <article class="project-card">
-          <img src="assets/images/book.jpg" alt="book" class="project-img">
+          <div class="img-wrapper">
+            <img src="assets/images/book.jpg" alt="book" class="project-img">
+          </div>
           <h3>Storybook Reading Tracker</h3>
           <p>A personal library app where users can log the books they've read, write reviews and track their reading goals for the year.</p>
           <ul class="tags">
@@ -119,6 +123,7 @@
           </ul>
           <a href="#" class="project-link">View Inspiration →</a>
         </article>
+
       </div>
     </section>
 
@@ -146,7 +151,10 @@
     <!-- 5. CONTACT SECTION -->
     <section id="contact" class="section">
       <h2 class="section-title">Contact Me</h2>
-      <p class="contact-text">If you'd like to work together, send me a message or email me at <a href="mailto:sitinuramira8@gmailcom">sitinuramira8@gmail.com</a></p>
+      <p class="contact-text">
+        If you'd like to work together, send me a message or email me at 
+        <a href="mailto:sitinuramira8@gmail.com">sitinuramira8@gmail.com</a>.
+      </p>
       
       <form id="contact-form">
         <div>
@@ -166,8 +174,9 @@
     </section>
   </main>
 
+  <!-- Footer placed correctly at the bottom -->
   <footer>
-    <p>&copy; 2026 Amira. All rights reserved.</p>
+    <p>&copy; <span id="year"></span> Amira. All rights reserved.</p>
   </footer>
 
   <!-- Link to your JavaScript file -->
