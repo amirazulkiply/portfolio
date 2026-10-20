@@ -177,6 +177,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   height: 100%;
+  overflow: hidden;
 }
 
 .project-card p {
@@ -359,14 +360,13 @@ footer {
   .hero h1 { font-size: 3.5rem; }
   .hero h2 { font-size: 1.5rem; }
   .section-title { font-size: 2.5rem; }
+}
 
-  /* ===== PROJECT IMAGES ===== */
-/* This keeps the image contained */
-/* ===== PROJECT IMAGES ===== */
+/* ===== 10. PROJECT IMAGES (These must be OUTSIDE the media query) ===== */
 .img-wrapper {
   width: 100%;
-  height: 220px; /* This forces the box to be exactly 220px tall */
-  max-height: 220px; /* Extra safety to stop it from growing */
+  height: 220px; 
+  max-height: 220px; 
   overflow: hidden; 
   border-radius: 12px;
   margin-bottom: 1.5rem;
@@ -377,13 +377,13 @@ footer {
   width: 100%;
   height: 100%; 
   max-height: 220px;
-  object-fit: cover; /* This forces the tall image to zoom in and crop, rather than stretch the box */
-  object-position: center; /* Keeps the focus in the middle of the collage */
+  object-fit: cover; 
+  object-position: center; 
 }
-/* ===== CONTACT TEXT CENTERING ===== */
+
+/* ===== 11. CONTACT TEXT CENTERING ===== */
 .contact-text {
   text-align: center;
-  margin-bottom: 2.5rem; /* Adds a little space before the form starts */
+  margin-bottom: 2.5rem; 
   font-size: 1.1rem;
-}
 }
