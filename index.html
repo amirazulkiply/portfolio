@@ -3,12 +3,154 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Siti Nur Amira binti Zulkiply | Portfolio</title>
+  <meta name="description" content="Portfolio of Amira — Web Developer" />
+  <title>Amira | Portfolio</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <h1>Hello, I'm Amira! </h1>
-  <p>Portfolio coming soon.</p>
+
+  <!-- 1. NAVIGATION BAR -->
+  <header class="navbar">
+  <nav aria-label="Primary">
+    <a href="#home" class="logo">Amira.</a>
+    
+    <!-- The Hamburger Button for Mobile -->
+    <button class="menu-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav-menu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<footer>
+  <p>&copy; <span id="year"></span> Amira. All rights reserved.</p>
+</footer>
+
+  <main>
+    <!-- 2. HOME SECTION -->
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">Hello, I am</p>
+        <h1>Amira</h1>
+        <h2>Web Developer & UI Enthusiast</h2>
+        <p class="hero-text">
+          I am a student passionate about building clean, accessible, and user-friendly websites using HTML, CSS, and JavaScript. 
+        </p>
+        <a href="#projects" class="btn">View My Work</a>
+      </div>
+    </section>
+
+    <!-- 3. PROJECTS SECTION -->
+    <section id="projects" class="section">
+      <h2 class="section-title">My Projects</h2>
+      
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <article class="project-card">
+          <h3>Project One</h3>
+          <p>A brief description of what this project is and what technologies I used to build it.</p>
+          <ul class="tags">
+            <li>HTML</li>
+            <li>CSS</li>
+          </ul>
+          <a href="#" class="project-link">View Project →</a>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card">
+          <h3>Project Two</h3>
+          <p>A brief description of what this project is and what technologies I used to build it.</p>
+          <ul class="tags">
+            <li>JavaScript</li>
+          </ul>
+          <a href="#" class="project-link">View Project →</a>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card">
+          <h3>Project Three</h3>
+          <p>A brief description of what this project is and what technologies I used to build it.</p>
+          <ul class="tags">
+            <li>HTML</li>
+            <li>JavaScript</li>
+          </ul>
+          <a href="#" class="project-link">View Project →</a>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="project-card">
+          <h3>Project Four</h3>
+          <p>A brief description of what this project is and what technologies I used to build it.</p>
+          <ul class="tags">
+            <li>CSS</li>
+          </ul>
+          <a href="#" class="project-link">View Project →</a>
+        </article>
+
+        <!-- Project 5 -->
+        <article class="project-card">
+          <h3>Project Five</h3>
+          <p>A brief description of what this project is and what technologies I used to build it.</p>
+          <ul class="tags">
+            <li>HTML</li>
+          </ul>
+          <a href="#" class="project-link">View Project →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- 4. ABOUT ME SECTION -->
+    <section id="about" class="section">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-content">
+        <p>
+          I am currently studying [Your Course/Major] and I love turning ideas into functional websites. When I'm not coding, I enjoy [Your Hobbies].
+        </p>
+        <h3>My Skills</h3>
+        <ul class="skills-list">
+          <li>HTML5</li>
+          <li>CSS3</li>
+          <li>JavaScript</li>
+          <li>Responsive Design</li>
+          <li>Accessibility</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 5. CONTACT SECTION -->
+    <section id="contact" class="section">
+      <h2 class="section-title">Contact Me</h2>
+      <p>If you'd like to work together, send me a message or email me at <a href="mailto:your.email@example.com">your.email@example.com</a>.</p>
+      
+      <form id="contact-form">
+        <div>
+          <label for="name">Name</label>
+          <input type="text" id="name" required />
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" required />
+        </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" rows="5" required></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Amira. All rights reserved.</p>
+  </footer>
+
+  <!-- Link to your JavaScript file -->
   <script src="js/main.js"></script>
 </body>
 </html>
