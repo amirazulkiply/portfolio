@@ -10,12 +10,12 @@ menuToggle.addEventListener('click', () => {
   document.body.classList.toggle('menu-open', isOpen);
 });
 
-// Close menu when a navigation link is clicked
-// (We specifically select 'a' tags so the theme button doesn't trigger it!)
-document.querySelectorAll('.nav-menu a').forEach(link => {
-  link.addEventListener('click', () => {
+// Close menu when a link OR the theme toggle is clicked
+// (This targets both the <a> links and the <button>)
+document.querySelectorAll('.nav-menu a, #theme-toggle').forEach(element => {
+  element.addEventListener('click', () => {
     navMenu.classList.remove('active');
-    document.body.classList.remove('menu-open');
+    document.body.classList.remove('menu-open'); // Unlocks the scroll!
   });
 });
 
