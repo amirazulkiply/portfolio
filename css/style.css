@@ -1,15 +1,25 @@
-/* ===== 1. WHIMSICAL GLOBAL STYLES ===== */
+/* ===== 1. GLOBAL VARIABLES & THEMES ===== */
 :root {
-  --bg-color: #fdfaf6;         /* Soft cream background */
-  --text-color: #4a4a4a;       /* Soft dark gray for readability */
-  --accent-color: #d4a373;     /* Warm vintage gold/peach */
-  --accent-pink: #f4c6c6;      /* Soft pastel pink */
-  --card-bg: #ffffff;          /* White for cards */
-  --border-color: #f0e6d2;     /* Delicate border */
+  --bg-color: #fdfaf6;         
+  --text-color: #4a4a4a;       
+  --accent-color: #d4a373;     
+  --accent-pink: #f4c6c6;      
+  --card-bg: #ffffff;          
+  --border-color: #f0e6d2;     
   --font-heading: 'Playfair Display', serif;
   --font-body: 'Quicksand', sans-serif;
 }
 
+/* Cozy Dark Mode Variables */
+body.dark-mode {
+  --bg-color: #2c2523;         
+  --text-color: #e8dccb;       
+  --card-bg: #3a322f;          
+  --border-color: #524743;     
+  --accent-pink: #d8a7b1;
+}
+
+/* ===== 2. BASE STYLES ===== */
 * {
   margin: 0;
   padding: 0;
@@ -29,6 +39,7 @@ body {
   background-image: linear-gradient(rgba(253, 250, 246, 0.92), rgba(253, 250, 246, 0.92)), url('../assets/images/bg-pattern.png');
   background-size: auto, 400px;
   background-attachment: fixed;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 h1, h2, h3, .logo {
@@ -42,18 +53,19 @@ a {
 }
 
 a:hover {
-  color: #bc8a5f;
+  color: var(--text-color);
 }
 
-/* ===== 2. NAVIGATION BAR ===== */
+/* ===== 3. NAVIGATION BAR ===== */
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: rgba(253, 250, 246, 0.95);
+  background-color: var(--bg-color);
   backdrop-filter: blur(10px);
   z-index: 1000;
   border-bottom: 1px dashed var(--accent-pink);
+  transition: background-color 0.3s;
 }
 
 .navbar nav {
@@ -76,6 +88,7 @@ a:hover {
   list-style: none;
   display: flex;
   gap: 2.5rem;
+  align-items: center;
 }
 
 .nav-menu a {
@@ -86,33 +99,14 @@ a:hover {
   text-transform: uppercase;
 }
 
-/* ===== 3. SECTIONS ===== */
-.section {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 6rem 2rem;
+#theme-toggle {
+  background: none; 
+  border: none; 
+  font-size: 1.2rem; 
+  cursor: pointer;
 }
 
-.section-title {
-  font-size: 3rem;
-  margin-bottom: 3rem;
-  text-align: center;
-  color: var(--text-color);
-  font-style: italic;
-}
-
-/* ===== 4. HERO (HOME) SECTION ===== */
-.profile-pic {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid var(--accent-pink);
-  margin: 0 auto 1.5rem auto;
-  box-shadow: 0 8px 20px rgba(244, 198, 198, 0.5);
-  display: block;
-}
-
+/* ===== 4. HERO SECTION ===== */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -124,13 +118,24 @@ a:hover {
 }
 
 .hero-content {
-  background-color: var(--bg-color);
+  background-color: var(--card-bg);
   padding: 3rem;
   border-radius: 30px;
   border: 1px solid var(--border-color);
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
   max-width: 700px;
-  margin-top: 0;
+  transition: background-color 0.3s;
+}
+
+.profile-pic {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--accent-pink);
+  margin: 0 auto 1.5rem auto;
+  box-shadow: 0 8px 20px rgba(244, 198, 198, 0.5);
+  display: block;
 }
 
 .eyebrow {
@@ -153,13 +158,15 @@ a:hover {
   color: var(--accent-color);
   margin-bottom: 2rem;
   font-style: italic;
+  min-height: 3rem;
 }
 
 .hero-text {
   max-width: 600px;
   margin: 0 auto 2.5rem;
   font-size: 1.1rem;
-  color: #666;
+  color: var(--text-color);
+  opacity: 0.9;
 }
 
 .btn {
@@ -182,7 +189,21 @@ a:hover {
   transform: translateY(-3px);
 }
 
-/* ===== 5. PROJECTS (Scrapbook Cards) ===== */
+/* ===== 5. SECTIONS & PROJECTS ===== */
+.section {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+}
+
+.section-title {
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  color: var(--text-color);
+  font-style: italic;
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -196,16 +217,10 @@ a:hover {
   border-radius: 20px;
   border: 1px solid var(--border-color);
   box-shadow: 0 8px 24px rgba(0,0,0,0.03);
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-}
-
-.project-card p {
-  flex-grow: 1; 
-  color: #666;
-  margin-bottom: 1.5rem;
 }
 
 .project-card:hover {
@@ -216,6 +231,41 @@ a:hover {
 .project-card h3 {
   font-size: 1.8rem;
   margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.project-card p {
+  flex-grow: 1; 
+  color: var(--text-color);
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+}
+
+.project-link {
+  font-weight: 700;
+}
+
+.img-wrapper {
+  width: 100%;
+  height: 220px; 
+  overflow: hidden; 
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border-color);
+  transform: rotate(-2deg);
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.project-card:hover .img-wrapper {
+  transform: rotate(0deg) scale(1.02); 
+}
+
+.project-img {
+  width: 100%;
+  height: 100%; 
+  object-fit: cover; 
+  object-position: center; 
 }
 
 .tags {
@@ -224,43 +274,43 @@ a:hover {
   gap: 0.6rem;
   margin-bottom: 1.5rem;
   flex-wrap: wrap;
-  padding-left: 0;
 }
 
 .tags li {
-  background-color: #f7f2eb;
-  color: #8c7a6b;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
   padding: 0.3rem 1rem;
   border-radius: 50px;
   font-size: 0.8rem;
   font-weight: 600;
-  border: 1px solid var(--border-color);
 }
 
 /* ===== 6. ABOUT SECTION ===== */
 #about {
-  background-color: #fff;
+  background-color: var(--card-bg);
   border-radius: 30px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.02);
   border: 1px solid var(--border-color);
   margin: 0 auto 2rem auto;
   max-width: 900px;
   padding: 4rem 3rem;
-  display: block;
+  transition: background-color 0.3s;
 }
 
 .about-content p {
   margin-bottom: 2rem;
   font-size: 1.15rem;
   text-align: center;
-  color: #555;
+  color: var(--text-color);
+  opacity: 0.9;
 }
 
-/* ADDED THIS RULE TO CENTER "MY SKILLS" */
 .about-content h3 {
   text-align: center;
   margin-bottom: 1.5rem;
   font-size: 1.8rem;
+  color: var(--text-color);
 }
 
 .skills-list {
@@ -269,20 +319,72 @@ a:hover {
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
-  padding-left: 0;
 }
 
 .skills-list li {
-  background-color: #fdfaf6;
+  background-color: var(--bg-color);
   border: 1px solid var(--accent-pink);
-  color: #7a6a5e;
+  color: var(--text-color);
   padding: 0.6rem 1.5rem;
   border-radius: 50px;
   font-weight: 600;
   font-size: 0.95rem;
 }
 
-/* ===== 7. CONTACT FORM ===== */
+/* Currently Box */
+.currently-box {
+  background-color: var(--bg-color);
+  border: 1px dashed var(--accent-color);
+  border-radius: 15px;
+  padding: 1.5rem 2rem;
+  margin: 2rem auto;
+  max-width: 600px;
+  text-align: left;
+}
+
+.currently-box h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--accent-color); /* This guarantees gold title */
+}
+
+.currently-box ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+
+.currently-box li {
+  font-size: 0.95rem;
+  color: var(--text-color);
+}
+
+@media (max-width: 600px) {
+  .currently-box ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== 7. CONTACT SECTION ===== */
+.contact-container {
+  background-color: var(--card-bg);
+  padding: 3rem 2rem;
+  border-radius: 30px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  max-width: 700px;
+  margin: 0 auto;
+  transition: background-color 0.3s;
+}
+
+.contact-text {
+  text-align: center;
+  margin-bottom: 2.5rem; 
+  font-size: 1.1rem;
+  color: var(--text-color);
+}
+
 #contact-form {
   max-width: 600px;
   margin: 0 auto;
@@ -308,11 +410,11 @@ input, textarea {
   padding: 1.2rem;
   border-radius: 15px;
   border: 2px solid var(--border-color);
-  background-color: #fff;
+  background-color: var(--bg-color);
   color: var(--text-color);
   font-family: var(--font-body);
   font-size: 1rem;
-  transition: border-color 0.3s;
+  transition: border-color 0.3s, background-color 0.3s;
 }
 
 input:focus, textarea:focus {
@@ -322,7 +424,7 @@ input:focus, textarea:focus {
 
 #contact-form button {
   padding: 1.2rem;
-  background-color: var(--text-color);
+  background-color: var(--accent-color);
   color: #fff;
   border: none;
   border-radius: 15px;
@@ -330,11 +432,12 @@ input:focus, textarea:focus {
   font-size: 1.1rem;
   cursor: pointer;
   font-family: var(--font-body);
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 #contact-form button:hover {
-  background-color: var(--accent-color);
+  background-color: #bc8a5f;
+  transform: translateY(-2px);
 }
 
 /* ===== 8. FOOTER ===== */
@@ -342,7 +445,8 @@ footer {
   text-align: center;
   padding: 2.5rem;
   border-top: 1px dashed var(--accent-pink);
-  color: #888;
+  color: var(--text-color);
+  opacity: 0.7;
   margin-top: 4rem;
 }
 
@@ -386,35 +490,28 @@ footer {
   .section-title { font-size: 2.5rem; }
 }
 
-/* ===== 10. PROJECT IMAGES ===== */
-.img-wrapper {
-  width: 100%;
-  height: 220px; 
-  max-height: 220px; 
-  overflow: hidden; 
-  border-radius: 12px;
-  margin-bottom: 1.5rem;
-  border: 1px solid var(--border-color);
-  transform: rotate(-2deg);
-  box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
-  transition: transform 0.3s;
+/* ===== 10. ANIMATIONS ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.project-card:hover .img-wrapper {
-  transform: rotate(0deg) scale(1.02); 
+.sparkle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  pointer-events: none; 
+  z-index: 9999;
+  animation: fadeOut 0.8s linear forwards;
 }
 
-.project-img {
-  width: 100%;
-  height: 100%; 
-  max-height: 220px;
-  object-fit: cover; 
-  object-position: center; 
-}
-
-/* ===== 11. CONTACT TEXT ===== */
-.contact-text {
-  text-align: center;
-  margin-bottom: 2.5rem; 
-  font-size: 1.1rem;
+@keyframes fadeOut {
+  0% { transform: scale(1) translateY(0); opacity: 1; }
+  100% { transform: scale(0) translateY(20px); opacity: 0; }
 }

@@ -133,3 +133,107 @@ form.addEventListener('submit', function(event) {
 // 6. DYNAMIC FOOTER YEAR
 // ==========================================
 document.getElementById('year').textContent = new Date().getFullYear();
+// ==========================================
+// 7. HERO TYPEWRITER EFFECT
+// ==========================================
+const typewriterElement = document.querySelector('.typewriter');
+if (typewriterElement) {
+  const words = JSON.parse(typewriterElement.getAttribute('data-words'));
+  let wordIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  function type() {
+    const currentWord = words[wordIndex];
+    
+    if (isDeleting) {
+      typewriterElement.textContent = currentWord.substring(0, charIndex - 1);
+      charIndex--;
+    } else {
+      typewriterElement.textContent = currentWord.substring(0, charIndex + 1);
+      charIndex++;
+    }
+
+    let typeSpeed = isDeleting ? 50 : 100;
+
+    if (!isDeleting && charIndex === currentWord.length) {
+      typeSpeed = 2000; // Pause at the end of the word
+      isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      wordIndex = (wordIndex + 1) % words.length;
+      typeSpeed = 500; // Pause before typing the next word
+    }
+
+    setTimeout(type, typeSpeed);
+  }
+  type(); // Start the effect
+}
+// ==========================================
+// 8. SCROLL REVEAL ANIMATIONS
+// ==========================================
+const revealElements = document.querySelectorAll('.section, .project-card');
+
+const revealObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+      observer.unobserve(entry.target); // Only animate once
+    }
+  });
+}, {
+  threshold: 0.1 // Triggers when 10% of the element is visible
+});
+
+revealElements.forEach(el => {
+  el.classList.add('reveal'); // Add the starting class
+  revealObserver.observe(el);
+});
+// ==========================================
+// 9. SPARKLE MOUSE TRAIL
+// ==========================================
+document.addEventListener('mousemove', function(e) {
+  // Only create sparkles occasionally to prevent lag
+  if (Math.random() > 0.3) return; 
+
+  const sparkle = document.createElement('div');
+  sparkle.classList.add('sparkle');
+  
+  // Randomize position slightly
+  sparkle.style.left = e.pageX + 'px';
+  sparkle.style.top = e.pageY + 'px';
+  
+  // Randomize colors (pink, gold, or blue)
+  const colors = ['#f4c6c6', '#d4a373', '#e0f2fe'];
+  sparkle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+
+  document.body.appendChild(sparkle);
+
+  // Remove the sparkle after the animation finishes (800ms)
+  setTimeout(() => {
+    sparkle.remove();
+  }, 800);
+});
+// ==========================================
+// 10. DARK MODE TOGGLE
+// ==========================================
+const themeToggleBtn = document.getElementById('theme-toggle');
+
+if (localStorage.getItem('theme') === 'dark') {
+  document.body.classList.add('dark-mode');
+  if(themeToggleBtn) themeToggleBtn.textContent = '☀️';
+}
+
+if (themeToggleBtn) {
+  themeToggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    
+    if (document.body.classList.contains('dark-mode')) {
+      themeToggleBtn.textContent = '☀️';
+      localStorage.setItem('theme', 'dark');
+    } else {
+      themeToggleBtn.textContent = '🌙';
+      localStorage.setItem('theme', 'light');
+    }
+  });
+}

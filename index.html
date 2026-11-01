@@ -27,6 +27,7 @@
         <li><a href="#projects">Projects</a></li>
         <li><a href="#about">About Me</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><button id="theme-toggle" aria-label="Toggle dark mode" style="background:none; border:none; font-size:1.2rem; cursor:pointer;">🌙</button></li>
       </ul>
     </nav>
   </header>
@@ -39,9 +40,9 @@
         
       <p class="eyebrow">Hello, I am</p>
         <h1>Amira Zulkiply </h1>
-        <h2>Web Developer & UI Enthusiast</h2>
+                <h2 class="typewriter" data-words='["Web Developer👩‍💻", "Multimedia Computing Student👩🏻‍🎓", "Mother of Four..Cats🐈"]'></h2>
         <p class="hero-text">
-          I am a student passionate about building clean, accessible, and user-friendly websites using HTML, CSS, and JavaScript. 
+          I am a student passionate about building clean, accessible and user-friendly websites using HTML, CSS, and JavaScript. 
         </p>
         <a href="#projects" class="btn">View My Work</a>
       </div>
@@ -133,6 +134,15 @@
           <br><br>
           When I'm not coding or studying, I enjoy <strong>trying new makeup looks, reading, exploring cafes, and taking care of my plants</strong>. I also have a soft spot for pastel aesthetics and thoughtful UI design!
         </p>
+         <div class="currently-box">
+          <h3>Currently...</h3>
+          <ul>
+            <li>📖 <strong>Reading:</strong> Someone Else's Shoes by Jojo Moyes</li>
+            <li>☕ <strong>Drinking:</strong> Iced Matcha Latte</li>
+            <li>🎤 <strong>Favourite singer of the month:</strong> Olivia Rodrigo💜</li>
+            <li>🎧 <strong>Listening to:</strong> Great Expectation by Sienna Spiro🧡</li>
+          </ul>
+        </div>
         
         <h3>My Skills</h3>
         <ul class="skills-list">
@@ -145,29 +155,32 @@
       </div>
     </section>
 
-    <!-- 5. CONTACT SECTION -->
+        <!-- 5. CONTACT SECTION -->
     <section id="contact" class="section">
-      <h2 class="section-title">Contact Me 💌</h2>
-      <p class="contact-text">
-        If you'd like to work together, send me a message or email me at 
-        <a href="mailto:sitinuramira8@gmail.com">sitinuramira8@gmail.com</a>.
-      </p>
-      
-      <form id="contact-form">
-        <div>
-          <label for="name">Name</label>
-          <input type="text" id="name" required />
-        </div>
-        <div>
-          <label for="email">Email</label>
-          <input type="email" id="email" required />
-        </div>
-        <div>
-          <label for="message">Message</label>
-          <textarea id="message" rows="5" required></textarea>
-        </div>
-        <button type="submit">Send Message</button>
-      </form>
+      <div class="contact-container">
+        <h2 class="section-title">Contact Me 💌</h2>
+        
+        <p class="contact-text">
+          If you'd like to work together, send me a message or email me at 
+          <a href="mailto:sitinuramira8@gmail.com">sitinuramira8@gmail.com</a>.
+        </p>
+        
+        <form id="contact-form">
+          <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" required />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" required />
+          </div>
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" required></textarea>
+          </div>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
     </section>
   </main>
 
