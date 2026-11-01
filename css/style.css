@@ -484,10 +484,6 @@ footer {
   }
   
   .nav-menu.active { display: flex; }
-
-   body.menu-open {
-    overflow: hidden; /* Stops the page from scrolling behind the menu */
-  }
   
   .hero h1 { font-size: 3.5rem; }
   .hero h2 { font-size: 1.5rem; }
