@@ -6,13 +6,16 @@ const navMenu = document.querySelector('.nav-menu');
 
 // Toggle menu open/close
 menuToggle.addEventListener('click', () => {
-  navMenu.classList.toggle('active');
+  const isOpen = navMenu.classList.toggle('active');
+  // Add or remove the 'menu-open' class to the body
+  document.body.classList.toggle('menu-open', isOpen);
 });
 
 // Close menu when a link is clicked
 document.querySelectorAll('.nav-menu a').forEach(link => {
   link.addEventListener('click', () => {
-    navMenu.classList.remove('active'); // This forces the menu to close
+    navMenu.classList.remove('active');
+    document.body.classList.remove('menu-open'); // Remove the class
   });
 });
 
