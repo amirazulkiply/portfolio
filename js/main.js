@@ -7,15 +7,15 @@ const navMenu = document.querySelector('.nav-menu');
 // Toggle menu open/close
 menuToggle.addEventListener('click', () => {
   const isOpen = navMenu.classList.toggle('active');
-  // Add or remove the 'menu-open' class to the body
   document.body.classList.toggle('menu-open', isOpen);
 });
 
-// Close menu when a link is clicked
+// Close menu when a navigation link is clicked
+// (We specifically select 'a' tags so the theme button doesn't trigger it!)
 document.querySelectorAll('.nav-menu a').forEach(link => {
   link.addEventListener('click', () => {
     navMenu.classList.remove('active');
-    document.body.classList.remove('menu-open'); // Remove the class
+    document.body.classList.remove('menu-open');
   });
 });
 
